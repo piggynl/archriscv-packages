@@ -1,0 +1,11 @@
+@@ -27,6 +27,10 @@ prepare() {
+   # create directory for build output
+   mkdir build
+ 
++  # replace unmaintained dependency
++  go mod edit -replace github.com/jacobsa/crypto=github.com/aperturerobotics/jacobsa-crypto@v1.0.0
++  go mod tidy
++
+   # download dependencies
+   go mod download
+ }
